@@ -1,0 +1,7 @@
+C:\Personal\Eindwerk PCVO\DAL\bin\Debug\DAL.dll
+C:\Personal\Eindwerk PCVO\DAL\bin\Debug\DAL.pdb
+C:\Personal\Eindwerk PCVO\DAL\bin\Debug\MvvmValidation.dll
+C:\Personal\Eindwerk PCVO\DAL\bin\Debug\MvvmValidation.xml
+C:\Personal\Eindwerk PCVO\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Personal\Eindwerk PCVO\DAL\obj\Debug\DAL.dll
+C:\Personal\Eindwerk PCVO\DAL\obj\Debug\DAL.pdb

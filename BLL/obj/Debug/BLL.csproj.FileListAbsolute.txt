@@ -1,0 +1,9 @@
+C:\Personal\Eindwerk PCVO\BLL\bin\Debug\BLL.dll
+C:\Personal\Eindwerk PCVO\BLL\bin\Debug\BLL.pdb
+C:\Personal\Eindwerk PCVO\BLL\bin\Debug\DAL.dll
+C:\Personal\Eindwerk PCVO\BLL\bin\Debug\MvvmValidation.dll
+C:\Personal\Eindwerk PCVO\BLL\bin\Debug\DAL.pdb
+C:\Personal\Eindwerk PCVO\BLL\bin\Debug\MvvmValidation.xml
+C:\Personal\Eindwerk PCVO\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+C:\Personal\Eindwerk PCVO\BLL\obj\Debug\BLL.dll
+C:\Personal\Eindwerk PCVO\BLL\obj\Debug\BLL.pdb

@@ -1,0 +1,20 @@
+﻿StudentenAdministratieApp
+
+
+winexe
+C#
+.cs
+C:\Personal\Eindwerk PCVO\StudentenAdministratieApp\obj\Debug\
+StudentenAdministratieApp
+none
+false
+DEBUG;TRACE
+C:\Personal\Eindwerk PCVO\StudentenAdministratieApp\App.xaml
+33-1360172616
+
+68-1285333728
+22-555359867
+MainWindow.xaml;Pages\Cursisten\Afwezigheid.xaml;Pages\Cursisten\CursistAanpassen.xaml;Pages\Cursisten\CursistenNavigationView.xaml;Pages\Cursisten\ModuleInschrijving.xaml;Pages\Cursisten\NieuweCursist.xaml;Pages\Leerkrachten\Aanwezigheidslijsten.xaml;Pages\Leerkrachten\LeerkrachtAfwezig.xaml;Pages\Leerkrachten\LeerkrachtenNavigationView.xaml;Pages\Leerkrachten\LesmomentAanpassen.xaml;Pages\Leerkrachten\Punten.xaml;Pages\Lesaanbod\LesaanbodNavigationView.xaml;Pages\Lesaanbod\Modules.xaml;Pages\Lesaanbod\Opleidingen.xaml;Pages\Lesaanbod\Studiegebieden.xaml;Pages\Lessenroosters\Leerkracht.xaml;Pages\Lessenroosters\LessenroostersNavigationView.xaml;Pages\Lessenroosters\Module.xaml;Pages\Lessenroosters\Student.xaml;Pages\Personeel\LeerkrachtAanpassen.xaml;Pages\Personeel\PersoneelAanpassen.xaml;Pages\Personeel\PersoneelNavigationView.xaml;Pages\Ticketing\Afwezigheden.xaml;Pages\Ticketing\Inschrijvingen.xaml;Pages\Ticketing\LockedView.xaml;Pages\Ticketing\TicketingNavigationView.xaml;Pages\Ticketing\Tickets.xaml;Pages\Ticketing\Uitschrijvingen.xaml;Pages\Ticketing\Vragen.xaml;Pages\Ticketing\Wijziging.xaml;Resources\Icons.xaml;Resources\IconsNonShared.xaml;StyleDictionary.xaml;
+
+False
+

@@ -1,0 +1,83 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" EnableViewState="true" CodeFile="MasterPageLoggedOff.master.cs" Inherits="MasterPage_MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <meta charset="UTF-8" />
+    <%-- voor IE --> rendering using the latest rendering engine --%>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <%-- device-width maakt de breedte van de pagina gelijk aan de breedte van het scherm
+        waarop de pagina bekeken wordt
+        initial-scale=1 is de zoom op de pagina als deze geladen is --%>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="/App_Themes/Normaal/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/App_Themes/Normaal/css/Custom.css" rel="stylesheet" />
+    <script src="/App_Themes/Normaal/jquery-1.12.3.min.js"></script>
+    <script src="/App_Themes/Normaal/js/bootstrap.min.js"></script>
+    <script src="/App_Themes/Normaal/js/Custom.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server" style="height: inherit">
+        <nav class="navbar navbar-inverse navbar-fixed-top" id="main-navbar">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/Pages/Login.aspx"><span class="glyphicon glyphicon-tree-deciduous"></span>GreenBoard</a>
+                </div>
+                <div class="collapse navbar-collapse navbar-header" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="/Pages/Login.aspx">LOGIN</a>
+                            <%--<asp:LinkButton ID="lnkLogin" CssClass="dropdown-toggle" data-toggle="dropdown" runat="server">Login<b class="caret"></b></asp:LinkButton>--%>
+                            
+                        </li>
+                        <li>
+                            <a href="/Pages/Lessenroosters.aspx">LESSENROOSTERS</a>
+                            <%--<asp:LinkButton ID="lnkLogin" CssClass="dropdown-toggle" data-toggle="dropdown" runat="server">Login<b class="caret"></b></asp:LinkButton>--%>
+                            
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">LESAANBOD<b class="caret"></b></a>
+                            <%--<asp:LinkButton ID="lnkMijnAccount" runat="server">Mijn account</asp:LinkButton>--%>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="/Pages/Opleidingen.aspx">Opleidingen</a>
+                                </li>
+                                <li>
+                                    <a href="/Pages/Modules.aspx">Modules</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+
+                </div>
+                <div style="text-align: right">
+                    <asp:DropDownList ID="ThemeList" CssClass="center btn btn-default green" Width="100px" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ThemeList_SelectedIndexChanged">
+                        <asp:ListItem>Normaal</asp:ListItem>
+                        <asp:ListItem>EK</asp:ListItem>
+                    </asp:DropDownList>
+                </div>
+            </div>
+
+        </nav>
+        <div class="vertical-center">
+            <div class="container">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+        <div class="modal-footer">
+            PXL Hogeschool
+        </div>
+    </form>
+</body>
+</html>

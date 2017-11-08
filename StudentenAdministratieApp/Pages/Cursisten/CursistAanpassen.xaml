@@ -1,0 +1,262 @@
+﻿<UserControl x:Class="StudentenAdministratieApp.Pages.Cursisten.CursistAanpassen"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:StudentenAdministratieApp.Pages.Cursisten"
+             xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+             xmlns:Converter="clr-namespace:StudentenAdministratieApp.Convertor"
+             mc:Ignorable="d" 
+             Background="{StaticResource BackgroundImage}"
+             xmlns:VW="clr-namespace:StudentenAdministratieApp.ViewModel.Cursisten">
+
+    <UserControl.DataContext>
+        <VW:clsCursistAanpassenViewModel></VW:clsCursistAanpassenViewModel>
+    </UserControl.DataContext>
+    <UserControl.Resources>
+        <Converter:clsManVrouwToBoolConverter x:Key="ManToVrouwBoolConverter"></Converter:clsManVrouwToBoolConverter>
+    </UserControl.Resources>
+
+    <DockPanel Margin="5" VerticalAlignment="Stretch">
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" HorizontalAlignment="Right" Margin="5">
+            <Button Content="Verwijder Student" Command="{Binding DeleteCommand}" Margin="0,0,10,0"/>
+            <Button Content="Lees Identiteitskaart" Command="{Binding LeesEIDCommand}" Margin="0,0,10,0"/>
+            <Button Content="Gegevens Opslaan" Command="{Binding SaveCommand}" ToolTip="{Binding ValidationErrors}" Margin="0,0,10,0" Background="LightGreen"/>
+            <Button Content="Annuleren" Command="{Binding CancelCommand}" Background="Red"/>
+        </StackPanel>
+        <Grid VerticalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" MinWidth="150"/>
+                <ColumnDefinition Width="1.651*" MinWidth="300"/>
+            </Grid.ColumnDefinitions>
+            <Border Grid.ColumnSpan="2" Grid.Row="0" Grid.Column="0"  HorizontalAlignment="Stretch"  MinHeight="25" Style="{StaticResource shadowBorder}">
+                <StackPanel Background="{StaticResource BGColor2}"  Width="auto" HorizontalAlignment="Center" Orientation="Horizontal" Margin="5">
+                    <Label Content="ZOEKEN" Margin="0,0,20,0" MinHeight="25" VerticalAlignment="Center"/>
+                    <ComboBox Name="cmbZoeken" IsEditable="true" IsTextSearchEnabled="True" IsTextSearchCaseSensitive="False"
+                      ItemsSource="{Binding Path=Cursisten, Mode=TwoWay}"
+                      SelectedItem="{Binding Path=SelectedCursist, Mode=TwoWay}" MaxHeight="25" MinWidth="120"
+                      Margin="0,0,20,0"
+                          VerticalAlignment="Center"/>
+                    <Button Content="Selecteer" MaxHeight="25" VerticalAlignment="Center"></Button>
+                </StackPanel>
+            </Border>
+
+            <Border Grid.Column="0" Grid.Row="1"  Style="{StaticResource shadowBorder}">
+                <Grid  Margin="5" Background="{StaticResource BGColor2}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" Content="Modules" Margin="0,0,0,0"/>
+                    <Grid Grid.Row="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="35"/>
+                            <RowDefinition Height="35"/>
+                            <RowDefinition Height="35"/>
+                            <RowDefinition Height="35"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*" MinWidth="150"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <!--<Label Content="Filter" Grid.Row="0" Grid.Column="0"/>
+                        <TextBox Name="txtFilter" Grid.Row="0" Grid.Column="1" Text="{Binding Path=Filter, Mode=TwoWay, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"/>
+                        <Label Content="Academiejaar" Grid.Row="1"/>-->
+                        <Label Content="Filter" Grid.Row="0" Grid.Column="0"/>
+                        <TextBox Name="txtFilter" Grid.Row="0" Grid.Column="1" Text="{Binding Path=Filter, Mode=TwoWay, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
+                        <Label Grid.Row="1">Academiejaar</Label>
+                        <ComboBox Name="cboFilter" Grid.Row="1" Grid.Column="2" SelectedValue="{Binding Path=FilterAcademie, Mode=TwoWay, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}" 
+                                  ItemsSource="{Binding Path=Academiejaren, Mode=TwoWay, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"
+                                  DisplayMemberPath="AcademieJaar" SelectedValuePath="IDAcademieJaar" VerticalAlignment="Center"></ComboBox>
+                        <Label Grid.Row="2">Studiegebied</Label>
+                        <ComboBox Name="cboFilterSg" Grid.Row="2" Grid.Column="2" SelectedValue="{Binding Path=FilterStudiegebied, Mode=TwoWay, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}" 
+                                  ItemsSource="{Binding Path=StudieGebieden, Mode=TwoWay, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"
+                                  DisplayMemberPath="Naam" SelectedValuePath="IDStudieGebied" VerticalAlignment="Center"></ComboBox>
+                        <Label Grid.Row="3">Opleiding</Label>
+                        <ComboBox Name="cboFilterOp" Grid.Row="3" Grid.Column="2" SelectedValue="{Binding Path=FilterOpleiding, Mode=TwoWay, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}" 
+                                  ItemsSource="{Binding Path=Opleidingen, Mode=TwoWay, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"
+                                  DisplayMemberPath="Naam" SelectedValuePath="IDOpleiding" VerticalAlignment="Center"></ComboBox>
+                        <DataGrid Margin="0,10,0,0" ScrollViewer.VerticalScrollBarVisibility="Auto" ItemsSource="{Binding Path=GebruikerInschrijvingen, Mode=TwoWay, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"
+                            Grid.ColumnSpan="2" Grid.Row="4" AutoGenerateColumns="False" IsReadOnly="True"
+                            >
+                            <DataGrid.Resources>
+                                <Style TargetType="{x:Type CheckBox}" BasedOn="{StaticResource centeredcheckbox}">
+                                    <Setter Property="IsEnabled" Value="{Binding SelectedItems.Count, ElementName=cmbZoeken}"/>
+                                </Style>
+                            </DataGrid.Resources>
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Module" Binding="{Binding Naam}" />
+                                <DataGridCheckBoxColumn Header="Inschrijven" Binding="{Binding Checked, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ElementStyle="{StaticResource {x:Type CheckBox}}"/>
+                                <DataGridTemplateColumn Header="Klas">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <ComboBox IsEditable="False" IsEnabled="{Binding Checked}"
+                                              SelectedValue="{Binding SelectedKlas,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                                              ItemsSource="{Binding Klassen, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" 
+                                              
+                                              DisplayMemberPath="Naam"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+
+                    </Grid>
+
+                </Grid>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="1" Style="{StaticResource shadowBorder}">
+                <Grid Margin="5" Background="{StaticResource BGColor2}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label >Persoonlijke Gegevens</Label>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="1">
+                            <Label>Opgeslagen</Label>
+                            <CheckBox IsChecked="{Binding Path=Opgeslagen, Mode=OneWay}"/>
+                        </StackPanel>
+                    </Grid>
+
+                    <ScrollViewer Grid.Row="1">
+                        <Grid Margin="5" MaxWidth="600">
+                            <Grid.Resources>
+
+                                <Style TargetType="{x:Type TextBox}">
+                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                    <Setter Property="HorizontalAlignment" Value="Left"/>
+                                    <Setter Property="Width" Value="200"/>
+                                </Style>
+                                <Style TargetType="{x:Type ComboBox}">
+                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                    <Setter Property="HorizontalAlignment" Value="Left"/>
+                                    <Setter Property="Width" Value="200"/>
+                                </Style>
+                                <Style TargetType="{x:Type DatePicker}">
+                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                    <Setter Property="HorizontalAlignment" Value="Left"/>
+                                    <Setter Property="Width" Value="200"/>
+                                </Style>
+                                <Style TargetType="{x:Type Label}">
+                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                    <Setter Property="HorizontalAlignment" Value="Right"/>
+                                    <Setter Property="Height" Value="35"/>
+                                </Style>
+                                <Style TargetType="{x:Type RowDefinition}">
+                                    <Setter Property="Height" Value="35"/>
+                                </Style>
+                            </Grid.Resources>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="200"/>
+                                <ColumnDefinition Width="200" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="35"/>
+                                <RowDefinition Height="35"/>
+                                <RowDefinition Height="35"/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Border Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" BorderBrush="Black" BorderThickness="1" MaxWidth="80" MaxHeight="80" >
+                                <Grid Background="White" Margin="0"  >
+                                    <Image Source="{Binding Path=SelectedCursist.Photo}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Grid>
+                            </Border> 
+                            
+                            <!--<Label Content="Afbeelding" Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"/>-->
+                            <Label Content="Naam" Grid.Column="0" Grid.Row="3"/>
+                            <Label Content="Voornaam" Grid.Column="0" Grid.Row="4"/>
+                            <Label Content="Rijksregisternr" Grid.Column="0" Grid.Row="5"/>
+                            <Label Content="Email" Grid.Column="0" Grid.Row="6"/>
+                            <Label Content="GSM" Grid.Column="0" Grid.Row="7"/>
+                            <Label Content="Hoogst behaalde diploma" Grid.Column="0" Grid.Row="8"/>
+                            <Label Content="Postcode" Grid.Column="0" Grid.Row="9"/>
+                            <Label Content="Huisnummer" Grid.Column="0" Grid.Row="10"/>
+                            <!--<Label Content="Notificatie Voorkeur" Grid.Column="0" Grid.Row="11"/>-->
+                            
+                            <Label Content="Taal" Grid.Column="0" Grid.Row="12"/>
+                            <Label Content="Toelatingsproef" Grid.Column="0" Grid.Row="13"/>
+                            <Label Content="Gebruikersnaam" Grid.Column="0" Grid.Row="14"/>
+                            <Label Content="Straat" Grid.Column="0" Grid.Row="15"/>
+                            <Label Content="Geslacht" Grid.Column="0" Grid.Row="16"/>
+                            <Label Content="Nationaliteit" Grid.Column="0" Grid.Row="17"/>
+                            <Label Content="Email Persoonlijk" Grid.Column="0" Grid.Row="18"/>
+                            <Label Content="Telefoonnummer" Grid.Column="0" Grid.Row="19"/>
+                            <Label Content="GeboorteDatum" Grid.Column="0" Grid.Row="20"/>
+
+                            <Button Grid.Row="0" Grid.Column="1" Grid.RowSpan="3" Name="btnPic" Height="25" Command="{Binding OpenImage}" VerticalAlignment="Bottom" Margin="0,0,0,10" >Nieuwe Afbeelding</Button>
+                            
+                            <TextBox Name="Naam" Text="{Binding Path=SelectedCursist.Naam, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Validation.ErrorTemplate="{StaticResource DefaultErrorTemplate}" Grid.Column="1" Grid.Row="3"/>
+                            <TextBox Name="Voornaam" Text="{Binding Path=SelectedCursist.Voornaam, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" Grid.Column="1" Grid.Row="4"/>
+                            <TextBox Name="Rijksregisternr" Text="{Binding Path=SelectedCursist.RijksregisterNummer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" Grid.Column="1" Grid.Row="5"/>
+                            <TextBox Name="Email" Text="{Binding Path=SelectedCursist.Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" Grid.Column="1" Grid.Row="6"/>
+                            <TextBox Name="GSM" Text="{Binding Path=SelectedCursist.GSMNummer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" Grid.Column="1" Grid.Row="7"/>
+
+                            <ComboBox  Name="cmbNiveau"  Grid.Column="1" Grid.Row="8" IsEditable="true" IsTextSearchEnabled="True"
+                                ItemsSource="{Binding Path=Niveaus}" SelectedValuePath="IDNiveau"
+                                SelectedValue="{Binding Path=SelectedCursist.IDNiveau}" MaxHeight="25" MinWidth="120"
+                                VerticalAlignment="Center"/>
+                            <ComboBox Name="cmbPostCodes"  Grid.Column="1" Grid.Row="9" IsEditable="true" IsTextSearchEnabled="True"
+                                ItemsSource="{Binding Path=PostCodes}" SelectedValuePath="IDPostCode"
+                                SelectedValue="{Binding Path=SelectedCursist.IDPostCode}" MaxHeight="25" MinWidth="120"
+                                VerticalAlignment="Center"/>
+
+                            <TextBox Name="Huisnummer" Text="{Binding Path=SelectedCursist.HuisNummer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" Grid.Column="1" Grid.Row="10"/>
+                            <!--<TextBox Name="NotificatieVoorkeur" Grid.Column="1" Grid.Row="11"/>-->
+                            
+                            <ComboBox Name="cmbTaal"  Grid.Column="1" Grid.Row="12" IsEditable="true" IsTextSearchEnabled="True"
+                                ItemsSource="{Binding Path=Talen}" SelectedValuePath="IDTaal"
+                                SelectedValue="{Binding Path=SelectedCursist.IDTaal}" MaxHeight="25" MinWidth="120"
+                                VerticalAlignment="Center"/>
+
+                            <CheckBox IsChecked="{Binding Path=SelectedCursist.ToelatingsProefGeslaagd, Mode=TwoWay}" Grid.Column="1" Grid.Row="13"/>
+                            <TextBox Name="Gebruikersnaam" Text="{Binding Path=SelectedCursist.Gebruikersnaam, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="14" IsEnabled="False"/>
+                            <TextBox Name="Straat" Text="{Binding Path=SelectedCursist.Straat, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" Grid.Column="1" Grid.Row="15"/>
+                            <!--http://stackoverflow.com/a/25193224-->
+                            <ComboBox Name="cmbGeslacht"  Grid.Column="1" Grid.Row="16" IsEditable="true" IsTextSearchEnabled="True"
+                                 MaxHeight="25" MinWidth="120"
+                                VerticalAlignment="Center" SelectedValue="{Binding SelectedGeslacht, Mode=TwoWay}" ItemsSource="{Binding Geslacht}">
+                            </ComboBox>
+                            <TextBox Name="Nationaliteit" Text="{Binding Path=SelectedCursist.Nationaliteit, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" Grid.Column="1" Grid.Row="17"/>
+                            <TextBox Name="EmailPersoonlijk" Text="{Binding Path=SelectedCursist.EmailPersoonlijk, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" Grid.Column="1" Grid.Row="18"/>
+                            <TextBox Name="Telefoonnummer" Text="{Binding Path=SelectedCursist.TelefoonNummer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}" Grid.Column="1" Grid.Row="19"/>
+                            <DatePicker Grid.Column="1" Grid.Row="20" SelectedDate="{Binding Path=SelectedCursist.GeboorteDatum, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True, ValidatesOnNotifyDataErrors=True}"/>
+                        </Grid>
+                    </ScrollViewer>
+                </Grid>
+            </Border>
+
+
+
+
+        </Grid>
+    </DockPanel>
+
+</UserControl>
+

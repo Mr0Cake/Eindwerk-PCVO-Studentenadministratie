@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0975A53D-BB3D-4C28-8501-AA913D7AEE1A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>StudentApplication.Model</RootNamespace>
+    <AssemblyName>StudentApplication.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MvvmValidation, Version=2.0.2.0, Culture=neutral, PublicKeyToken=113792d2053ac461, processorArchitecture=MSIL">
+      <HintPath>..\..\Project\Eindwerk PCVO\StudentenAdministratie\packages\MvvmValidation.2.0.2\lib\net40-client\MvvmValidation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="clsAanwezigheid.cs" />
+    <Compile Include="clsAcademieJaar.cs" />
+    <Compile Include="clsADGroep.cs" />
+    <Compile Include="clsBaseModel.cs" />
+    <Compile Include="clsBeoordelingsType.cs" />
+    <Compile Include="clsGebruiker.cs" />
+    <Compile Include="clsGebruikersType.cs" />
+    <Compile Include="clsGebruikers_ADGroeps.cs" />
+    <Compile Include="clsGebruikers_TypeGebruikers.cs" />
+    <Compile Include="clsGebruikerWebUpdate.cs" />
+    <Compile Include="clsInschrijving.cs" />
+    <Compile Include="clsKlas.cs" />
+    <Compile Include="clsKlasRooster.cs" />
+    <Compile Include="clsLokaal.cs" />
+    <Compile Include="clsMailTemplate.cs" />
+    <Compile Include="clsModule.cs" />
+    <Compile Include="clsModules_GebruikersLeraars.cs" />
+    <Compile Include="clsModules_VoorafgaandeModules.cs" />
+    <Compile Include="clsModuleType.cs" />
+    <Compile Include="clsNiveau.cs" />
+    <Compile Include="clsOpleiding.cs" />
+    <Compile Include="clsPostcode.cs" />
+    <Compile Include="clsResultaat.cs" />
+    <Compile Include="clsStudieGebied.cs" />
+    <Compile Include="clsTaal.cs" />
+    <Compile Include="clsTicketAanwezigheid.cs" />
+    <Compile Include="clsTicketBase.cs" />
+    <Compile Include="clsTicketInschrijving.cs" />
+    <Compile Include="clsVestiging.cs" />
+    <Compile Include="Helpers\clsBLLHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\BLL\BLL.csproj">
+      <Project>{19e55685-1445-4686-8623-896cebd16be6}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DAL\DAL.csproj">
+      <Project>{895f3bb1-bc96-42ea-8cb2-6f735f61c7ef}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Extensions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

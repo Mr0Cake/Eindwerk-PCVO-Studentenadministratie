@@ -1,0 +1,26 @@
+﻿<UserControl x:Class="StudentenAdministratieApp.Pages.Cursisten.CursistenNavigationView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:StudentenAdministratieApp.Pages.Cursisten"
+             mc:Ignorable="d" 
+             xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro">
+    <Grid>
+        <Controls:MetroAnimatedSingleRowTabControl DockPanel.Dock="Top" ItemContainerStyle="{StaticResource SmallTabItem}">
+            <TabItem Header="NieuweCursist">
+                <local:NieuweCursist/>
+            </TabItem>
+            <!--<TabItem Header="Module Inschrijving">
+                <local:ModuleInschrijving/>
+            </TabItem>-->
+            <TabItem Header="Cursist Aanpassen">
+                <local:CursistAanpassen/>
+            </TabItem>
+            <TabItem Header="Afwezigheid">
+                <local:Afwezigheid/>
+            </TabItem>
+        </Controls:MetroAnimatedSingleRowTabControl>
+    </Grid>
+</UserControl>

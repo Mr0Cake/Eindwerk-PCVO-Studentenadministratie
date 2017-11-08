@@ -1,0 +1,140 @@
+﻿<UserControl x:Class="StudentenAdministratieApp.Pages.Cursisten.Afwezigheid"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:StudentenAdministratieApp.Pages.Cursisten"
+             xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+             mc:Ignorable="d" 
+             Background="{StaticResource BackgroundImage}"
+             xmlns:VW="clr-namespace:StudentenAdministratieApp.ViewModel.Cursisten">
+
+    <UserControl.DataContext>
+        <VW:clsAfwezigheidViewModel></VW:clsAfwezigheidViewModel>
+    </UserControl.DataContext>
+
+
+    <DockPanel Margin="5" VerticalAlignment="Stretch">
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" HorizontalAlignment="Right" Margin="5">
+            <Button Content="Gegevens Opslaan" Command="{Binding SaveCommand}" ToolTip="{Binding ValidationErrors}" Margin="0,0,10,0" Background="LightGreen"/>
+            <Button Content="Annuleren" Background="Red"/>
+        </StackPanel>
+        <Grid VerticalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" MinWidth="150"/>
+                <ColumnDefinition Width="1.651*" MinWidth="300"/>
+            </Grid.ColumnDefinitions>
+            <Border Grid.ColumnSpan="2" Grid.Row="0" Grid.Column="0"  HorizontalAlignment="Stretch"   MinHeight="25" Style="{StaticResource shadowBorder}">
+                <StackPanel Background="{StaticResource BGColor2}"  Width="auto" HorizontalAlignment="Center" Orientation="Horizontal" Margin="5">
+                    <Label Content="ZOEKEN" Margin="0,0,20,0" MinHeight="25" VerticalAlignment="Center"/>
+                    <ComboBox Name="cmbZoeken" IsEditable="true" IsTextSearchEnabled="True" IsTextSearchCaseSensitive="False"
+                      ItemsSource="{Binding Path=Cursisten}"
+                      SelectedItem="{Binding Path=SelectedCursist}" MaxHeight="25" MinWidth="120"
+                      Margin="0,0,20,0"
+                          VerticalAlignment="Center"/>
+                    <Button Content="Selecteer" MaxHeight="25" VerticalAlignment="Center"></Button>
+                </StackPanel>
+            </Border>
+
+            <Border Grid.Column="0" Grid.Row="1"  Style="{StaticResource shadowBorder}">
+                <Grid  Margin="5" Background="{StaticResource BGColor2}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Label Content="Klassen" Grid.Row="0" Margin="0,0,0,0"/>
+                    <Grid Grid.Row="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="35"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Filter" Grid.Row="0" Grid.Column="0"/>
+                        <TextBox Name="txtFilter" Grid.Row="0" Grid.Column="1" Text="{Binding Path=Filter, Mode=TwoWay, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"/>
+                        <ScrollViewer Grid.Row="1" Grid.ColumnSpan="2" Margin="0,10,0,0">
+                            <ListBox Margin="0,0,0,0" ScrollViewer.VerticalScrollBarVisibility="Auto" 
+                                 ItemsSource="{Binding Path=SelectedKlassen, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" 
+                                 SelectedItem="{Binding SelectedKlas, Mode=TwoWay}"
+                                 Grid.ColumnSpan="2" Grid.Row="1" >
+                                <ListBox.ItemTemplate>
+                                    <ItemContainerTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Klas "/>
+                                            <TextBlock Text="{Binding Path=Naam}"/>
+                                            <TextBlock Margin="5,0,0,0" Text="{Binding Path=ModuleType.InterneNaam}"/>
+                                        </StackPanel>
+                                    </ItemContainerTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </ScrollViewer>
+                    </Grid>
+
+                </Grid>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="1" Style="{StaticResource shadowBorder}">
+                <Grid Margin="5" Background="{StaticResource BGColor2}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label >Lesmomenten</Label>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="1">
+                            <Label>Opgeslagen</Label>
+                            <CheckBox IsChecked="{Binding Path=Opgeslagen, Mode=OneWay}" IsThreeState="True" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Grid>
+
+                    <ScrollViewer Grid.Row="1">
+                        <DataGrid Margin="0,0,0,0" ScrollViewer.VerticalScrollBarVisibility="Auto" ItemsSource="{Binding Path=CursistKlasRooster, Mode=TwoWay, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"
+                            Grid.ColumnSpan="2" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True"
+                            >
+                            <DataGrid.Resources>
+                                <Style TargetType="{x:Type CheckBox}" BasedOn="{StaticResource {x:Type CheckBox}}" >
+                                    <Setter Property="IsThreeState" Value="True"/>
+                                    <Setter Property="IsEnabled" Value="{Binding SelectedItems.Count, ElementName=cmbZoeken}"/>
+                                </Style>
+                            </DataGrid.Resources>
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Lestijd" Binding="{Binding Header, Mode=OneWay}" />
+                                <DataGridTemplateColumn Header="Aanwezig">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition MinWidth="130" Width="*"/>
+                                                    <ColumnDefinition Width="16"/>
+                                                </Grid.ColumnDefinitions>
+                                                <TextBlock Grid.Column="0" Text="{Binding IsCheckedTranslation, Mode=OneWay}" />
+                                                <CheckBox Grid.Column="1" IsChecked="{Binding IsChecked, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsThreeState="True" VerticalAlignment="Center"/>
+                                            </Grid>
+                                        </DataTemplate>
+
+                                    </DataGridTemplateColumn.CellTemplate>
+
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </ScrollViewer>
+                </Grid>
+            </Border>
+
+
+
+
+        </Grid>
+    </DockPanel>
+
+</UserControl>
+

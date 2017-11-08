@@ -1,0 +1,19 @@
+﻿<Window x:Class="EIDVoorbeeld.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EIDVoorbeeld"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <StackPanel>
+        <TextBox Name="txtName" Margin="2"></TextBox>
+        <TextBox Name="txtSurName" Margin="2"></TextBox>
+        <TextBox Name="txtAdress" Margin="2"></TextBox>
+        <TextBox Name="txtDateOfBirth" Margin="2"></TextBox>
+        <TextBox Name="txtPlaceOfBirth" Margin="2"></TextBox>
+        <TextBox Name="txtNationality" Margin="2"></TextBox>
+        <Button Name="btnReadEid" Margin="2" Click="btnReadEid_Click">Read E-ID</Button>
+        
+    </StackPanel>
+</Window>

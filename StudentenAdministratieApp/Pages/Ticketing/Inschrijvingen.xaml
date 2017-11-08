@@ -1,0 +1,187 @@
+﻿<UserControl x:Class="StudentenAdministratieApp.Pages.Ticketing.Inschrijvingen"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:StudentenAdministratieApp.Pages.Ticketing"
+             mc:Ignorable="d" 
+             Background="{StaticResource BackgroundImage}"
+             xmlns:VW="clr-namespace:StudentenAdministratieApp.ViewModel.Ticketing">
+
+    <UserControl.DataContext>
+        <VW:clsTicketInschrijvingViewModel></VW:clsTicketInschrijvingViewModel>
+    </UserControl.DataContext>
+    <DockPanel Margin="5" VerticalAlignment="Stretch">
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" HorizontalAlignment="Right" Margin="5">
+            <TextBlock Text="Bevestig" VerticalAlignment="Center"></TextBlock>
+            <CheckBox VerticalAlignment="Center" Margin="5,0,0,0" ToolTip="Vink dit aan om de aanvraag te bevestingen." IsChecked="{Binding Path=Bevestig}" IsThreeState="False"></CheckBox>
+            <Button Content="Opslaan en verzenden" Command="{Binding SaveCommand}" ToolTip="{Binding ValidationErrors}" Margin="5,0,5,0" Background="LightGreen"/>
+            <Button Content="Verwijder Ticket" Command="{Binding DeleteCommand}" Background="Red"/>
+        </StackPanel>
+        <Grid VerticalAlignment="Stretch">
+            <Grid.RowDefinitions>
+
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" MinWidth="150"/>
+                <ColumnDefinition Width="1.651*" MinWidth="300"/>
+            </Grid.ColumnDefinitions>
+
+
+            <Border Grid.Column="0" Grid.Row="0"  Style="{StaticResource shadowBorder}">
+                <Grid  Margin="5" Background="{StaticResource BGColor2}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Label Content="Tickets" Grid.Row="0" Margin="0,0,0,0"/>
+                    <Grid Grid.Row="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="35"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Row="0">Inschrijving</Label>
+                        <ScrollViewer Grid.Row="1" Grid.ColumnSpan="2" Margin="0,10,0,0">
+                            <ListBox Margin="0,0,0,0" ScrollViewer.VerticalScrollBarVisibility="Auto" 
+                                 ItemsSource="{Binding Path=InschrijvingTickets, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" 
+                                 SelectedValue="{Binding Path=SelectedTicket, Mode=TwoWay, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"
+                                 Grid.ColumnSpan="2" Grid.Row="1" >
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Ticket Inschrijving"/>
+                                            <CheckBox Margin="10,0,0,0" Style="{StaticResource LockBox}" IsThreeState="True" IsChecked="{Binding Path=IsLocked}"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </ScrollViewer>
+
+                    </Grid>
+
+                </Grid>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="1" Style="{StaticResource shadowBorder}">
+                <Border.Resources>
+                <Style TargetType="{x:Type Grid}" x:Key="visiblity">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Path=SelectedTicket.IsLocked}" Value="{x:Null}">
+                            <Setter Property="Visibility" Value="Hidden"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Path=SelectedTicket.IsLocked}" Value="True">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Path=SelectedTicket.IsLocked}" Value="False">
+                            <Setter Property="Visibility" Value="Hidden"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+                </Border.Resources>
+                <Grid Margin="5" Background="{StaticResource BGColor2}" Style="{StaticResource visiblity}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label >TicketInschrijving</Label>
+                        <!--<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="1">
+                            <Label>Opgeslagen</Label>
+                            <CheckBox IsChecked="{Binding Path=Opgeslagen, Mode=OneWay}"/>
+                        </StackPanel>-->
+                    </Grid>
+
+                    <ScrollViewer Grid.Row="1">
+                        <Grid>
+                            <Grid.Resources>
+                                <Style x:Key="showHideGrid" TargetType="{x:Type Grid}">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding SelectedInschrijving.IsValidated}" Value="true">
+                                            <Setter Property="Visibility" Value="Collapsed"></Setter>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding SelectedInschrijving.IsValidated}" Value="false">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Grid.Resources>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <StackPanel Grid.Row="0" Orientation="Horizontal">
+                                <TextBlock Text="{Binding Path=SelectedGebruiker.Voornaam}"/>
+                                <TextBlock Text="{Binding Path=SelectedGebruiker.Naam}" Margin="2,0,0,0"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                                <StackPanel.Resources>
+                                    <Style x:Key="basedonboolean" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource {x:Type TextBlock}}">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Path=SelectedInschrijving.IsValidated}" Value="true">
+                                                <Setter Property="Text" Value="Wil zich uitschrijven voor de module "></Setter>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding Path=SelectedInschrijving.IsValidated}" Value="false">
+                                                <Setter Property="Text" Value="Wil zich inschrijven voor de module "></Setter>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </StackPanel.Resources>
+                                <TextBlock Name="inschrijving" Style="{StaticResource basedonboolean}"/>
+                                <TextBlock Text="{Binding Path=SelectedModuleType.InterneNaam}"/>
+                            </StackPanel>
+
+                            <Grid Grid.Row="2" Style="{StaticResource showHideGrid}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <TextBlock Grid.Row="0" Grid.Column="0" Text="Benodigde Modules"/>
+                                <ListView Grid.Row="1" Grid.Column="0" ItemsSource="{Binding BenodigdeModules}" DisplayMemberPath="InterneNaam">
+
+                                </ListView>
+                                <TextBlock Grid.Row="0" Grid.Column="1" Text="Behaalde Modules"/>
+                                <ListView Grid.Column="1" Grid.Row="1" ItemsSource="{Binding BehaaldedeModules}" DisplayMemberPath="InterneNaam">
+
+                                </ListView>
+                            </Grid>
+
+                            <Grid Grid.Row="3" Margin="0,10,0,0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0" Text="Mail"></TextBlock>
+                                <TextBox Grid.Row="1" MinHeight="50" Height="auto" Text="{Binding MailText, UpdateSourceTrigger=PropertyChanged}"/>
+                            </Grid>
+
+                        </Grid>
+                    </ScrollViewer>
+
+
+                </Grid>
+            </Border>
+        </Grid>
+    </DockPanel>
+
+</UserControl>

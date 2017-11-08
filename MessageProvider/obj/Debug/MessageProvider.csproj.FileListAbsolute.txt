@@ -1,0 +1,5 @@
+C:\Personal\Eindwerk PCVO\MessageProvider\bin\Debug\MessageProvider.dll
+C:\Personal\Eindwerk PCVO\MessageProvider\bin\Debug\MessageProvider.pdb
+C:\Personal\Eindwerk PCVO\MessageProvider\obj\Debug\MessageProvider.csprojResolveAssemblyReference.cache
+C:\Personal\Eindwerk PCVO\MessageProvider\obj\Debug\MessageProvider.dll
+C:\Personal\Eindwerk PCVO\MessageProvider\obj\Debug\MessageProvider.pdb

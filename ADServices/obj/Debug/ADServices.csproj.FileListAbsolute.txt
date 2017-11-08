@@ -1,0 +1,13 @@
+C:\Personal\Eindwerk PCVO\ADServices\bin\Debug\ADServices.dll
+C:\Personal\Eindwerk PCVO\ADServices\bin\Debug\ADServices.pdb
+C:\Personal\Eindwerk PCVO\ADServices\bin\Debug\BLL.dll
+C:\Personal\Eindwerk PCVO\ADServices\bin\Debug\MvvmValidation.dll
+C:\Personal\Eindwerk PCVO\ADServices\bin\Debug\StudentApplication.Model.dll
+C:\Personal\Eindwerk PCVO\ADServices\bin\Debug\DAL.dll
+C:\Personal\Eindwerk PCVO\ADServices\bin\Debug\BLL.pdb
+C:\Personal\Eindwerk PCVO\ADServices\bin\Debug\StudentApplication.Model.pdb
+C:\Personal\Eindwerk PCVO\ADServices\bin\Debug\MvvmValidation.xml
+C:\Personal\Eindwerk PCVO\ADServices\bin\Debug\DAL.pdb
+C:\Personal\Eindwerk PCVO\ADServices\obj\Debug\ADServices.csprojResolveAssemblyReference.cache
+C:\Personal\Eindwerk PCVO\ADServices\obj\Debug\ADServices.dll
+C:\Personal\Eindwerk PCVO\ADServices\obj\Debug\ADServices.pdb

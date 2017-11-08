@@ -1,0 +1,51 @@
+﻿<Controls:MetroWindow x:Class="StudentenAdministratieApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StudentenAdministratieApp"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:NavigationCursisten="clr-namespace:StudentenAdministratieApp.Pages.Cursisten"
+        xmlns:NavigationLeerkrachten="clr-namespace:StudentenAdministratieApp.Pages.Leerkrachten"
+        xmlns:NavigationLesaanbod="clr-namespace:StudentenAdministratieApp.Pages.Lesaanbod"
+        xmlns:NavigationLessenroosters="clr-namespace:StudentenAdministratieApp.Pages.Lessenroosters"
+        xmlns:NavigationPersoneel="clr-namespace:StudentenAdministratieApp.Pages.Personeel"
+        xmlns:NavigationTicketing="clr-namespace:StudentenAdministratieApp.Pages.Ticketing"
+        xmlns:Main="clr-namespace:StudentenAdministratieApp.ViewModel"
+        mc:Ignorable="d"
+        ShowIconOnTitleBar="True"
+        Icon="PXLBlueSmall.png"
+        Title="StudentenAdministratie" Height="auto" Width="auto">
+    <Window.DataContext>
+        <Main:MainWindowViewModel></Main:MainWindowViewModel>
+    </Window.DataContext>
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>
+
+            <Button Content="{Binding Path=Name}"/>
+
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
+    <Grid Background="{StaticResource ResourceKey=tabcontrolBG}">
+        <Controls:MetroAnimatedSingleRowTabControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <TabItem Header="Cursisten">
+                <NavigationCursisten:CursistenNavigationView/>
+            </TabItem>
+            <TabItem Header="Leerkrachten">
+                <NavigationLeerkrachten:LeerkrachtenNavigationView/>
+            </TabItem>
+            <!--<TabItem Header="Lesaanbod">
+                <NavigationLesaanbod:LesaanbodNavigationView/>
+            </TabItem>-->
+            <TabItem Header="Lessenroosters">
+                <NavigationLessenroosters:LessenroostersNavigationView/>
+            </TabItem>
+            <!--<TabItem Header="Personeel">
+                <NavigationPersoneel:PersoneelNavigationView HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            </TabItem>-->
+            <TabItem Header="Ticketing">
+                <NavigationTicketing:TicketingNavigationView/>
+            </TabItem>
+        </Controls:MetroAnimatedSingleRowTabControl>
+    </Grid>
+</Controls:MetroWindow>

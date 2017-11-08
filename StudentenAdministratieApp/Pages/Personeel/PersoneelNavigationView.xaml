@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="StudentenAdministratieApp.Pages.Personeel.PersoneelNavigationView"
+                          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:StudentenAdministratieApp.Pages.Personeel"
+             mc:Ignorable="d" 
+             xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro">
+    <Grid>
+        <Controls:MetroAnimatedSingleRowTabControl DockPanel.Dock="Top" ItemContainerStyle="{StaticResource SmallTabItem}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <TabItem Header="Leerkracht">
+                <Grid>
+                <local:LeerkrachtAanpassen Width="auto" Height="auto" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="5"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Personeel">
+                <local:PersoneelAanpassen/>
+            </TabItem>
+        </Controls:MetroAnimatedSingleRowTabControl>
+    </Grid>
+</UserControl>

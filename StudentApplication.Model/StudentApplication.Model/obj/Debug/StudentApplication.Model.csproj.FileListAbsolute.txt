@@ -1,0 +1,9 @@
+C:\Personal\Eindwerk PCVO\StudentApplication.Model\StudentApplication.Model\bin\Debug\StudentApplication.Model.dll
+C:\Personal\Eindwerk PCVO\StudentApplication.Model\StudentApplication.Model\bin\Debug\StudentApplication.Model.pdb
+C:\Personal\Eindwerk PCVO\StudentApplication.Model\StudentApplication.Model\bin\Debug\BLL.dll
+C:\Personal\Eindwerk PCVO\StudentApplication.Model\StudentApplication.Model\bin\Debug\DAL.dll
+C:\Personal\Eindwerk PCVO\StudentApplication.Model\StudentApplication.Model\bin\Debug\BLL.pdb
+C:\Personal\Eindwerk PCVO\StudentApplication.Model\StudentApplication.Model\bin\Debug\DAL.pdb
+C:\Personal\Eindwerk PCVO\StudentApplication.Model\StudentApplication.Model\obj\Debug\StudentApplication.Model.csprojResolveAssemblyReference.cache
+C:\Personal\Eindwerk PCVO\StudentApplication.Model\StudentApplication.Model\obj\Debug\StudentApplication.Model.dll
+C:\Personal\Eindwerk PCVO\StudentApplication.Model\StudentApplication.Model\obj\Debug\StudentApplication.Model.pdb

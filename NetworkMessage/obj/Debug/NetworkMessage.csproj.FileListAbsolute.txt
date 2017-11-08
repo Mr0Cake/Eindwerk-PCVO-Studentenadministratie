@@ -1,0 +1,6 @@
+C:\Personal\Eindwerk PCVO\NetworkMessage\bin\Debug\NetworkMessage.dll
+C:\Personal\Eindwerk PCVO\NetworkMessage\bin\Debug\NetworkMessage.pdb
+C:\Personal\Eindwerk PCVO\NetworkMessage\bin\Debug\MvvmValidation.dll
+C:\Personal\Eindwerk PCVO\NetworkMessage\bin\Debug\MvvmValidation.xml
+C:\Personal\Eindwerk PCVO\NetworkMessage\obj\Debug\NetworkMessage.dll
+C:\Personal\Eindwerk PCVO\NetworkMessage\obj\Debug\NetworkMessage.pdb

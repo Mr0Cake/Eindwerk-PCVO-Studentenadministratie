@@ -1,0 +1,122 @@
+﻿html, body {
+    height: 100%;
+    background-image: url(/Images/belgie.jpg);
+    background-position: center top;
+    background-size: 100% auto;
+}
+
+.img-responsive,
+.thumbnail > img,
+.thumbnail a > img,
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+    display: block;
+    max-width: 292.5px;
+    height: auto;
+}
+.green{
+    background-color: #479507;
+}
+.navbar-inverse {
+    background-color: #479507;
+    border-color: #479507;
+    background-image:none;
+}
+
+    .navbar-inverse .navbar-text {
+        color: #FFFFFF;
+    }
+
+    .navbar-inverse .navbar-nav > li > a {
+        color: #FFFFFF;
+    }
+
+        .navbar-inverse .navbar-nav > li > a:hover,
+        .navbar-inverse .navbar-nav > li > a:focus {
+            color: #ccc;
+            text-decoration: underline;
+            background-color: #58A618;
+            font-weight: bolder;
+        }
+
+    .navbar-inverse .navbar-brand {
+        color: #fff;
+    }
+
+.border {
+    border: 1px solid #000;
+    border-radius: 3px;
+    padding: 50px;
+}
+
+.vertical-center {
+    min-height: 85%; /* Fallback for browsers do NOT support vh unit */
+    min-height: 85vh; /* These two lines are counted as one :-)       */
+    display: flex;
+    align-items: center;
+}
+
+.margin-left {
+    margin-left: 50px;
+}
+
+.margin-bottom {
+    margin-bottom: 20px;
+}
+
+.modal-footer {
+    padding: 15px;
+    text-align: center;
+    border-top: 1px solid #e5e5e5;
+}
+
+.module-header{
+    padding: 15px;
+    border-bottom: 3px solid;
+}
+
+.module-item{
+    padding: 5px;
+}
+
+.center {
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+}
+
+.multiline{
+    resize: none;
+}
+
+.autocomplete_completionListElement
+{
+    margin : 0px!important ;
+    background-color : inherit ;
+    color : windowtext ;
+    border : buttonshadow ;
+    border-width : 1px ;
+    border-style : solid ;
+    cursor:default;
+    overflow : auto ;
+    height : 200px ;
+    font-family : Tahoma ;
+    font-size : small ;
+    text-align : left ;
+    list-style-type : none ;
+    }
+/* AutoComplete highlighted item */
+.autocomplete_highlightedListItem
+   {
+    background-color : #ffff99 ;
+    color : black ;
+    padding : 1px ;
+    }
+
+    /* AutoComplete item */
+.autocomplete_listItem
+    {
+    background-color : window ;
+    color : windowtext ;
+    padding : 1px ;
+   }

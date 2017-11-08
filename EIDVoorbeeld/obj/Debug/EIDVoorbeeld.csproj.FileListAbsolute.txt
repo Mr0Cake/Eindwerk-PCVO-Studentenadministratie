@@ -1,0 +1,16 @@
+C:\Personal\Eindwerk PCVO\EIDVoorbeeld\bin\Debug\EIDVoorbeeld.exe.config
+C:\Personal\Eindwerk PCVO\EIDVoorbeeld\bin\Debug\EIDVoorbeeld.exe
+C:\Personal\Eindwerk PCVO\EIDVoorbeeld\bin\Debug\EIDVoorbeeld.pdb
+C:\Personal\Eindwerk PCVO\EIDVoorbeeld\bin\Debug\EID.Wrapper.dll
+C:\Personal\Eindwerk PCVO\EIDVoorbeeld\bin\Debug\EID.Wrapper.pdb
+C:\Personal\Eindwerk PCVO\EIDVoorbeeld\obj\Debug\EIDVoorbeeld.csprojResolveAssemblyReference.cache
+C:\Personal\Eindwerk PCVO\EIDVoorbeeld\obj\Debug\MainWindow.g.cs
+C:\Personal\Eindwerk PCVO\EIDVoorbeeld\obj\Debug\App.g.cs
+C:\Personal\Eindwerk PCVO\EIDVoorbeeld\obj\Debug\EIDVoorbeeld_MarkupCompile.cache
+C:\Personal\Eindwerk PCVO\EIDVoorbeeld\obj\Debug\EIDVoorbeeld_MarkupCompile.lref
+C:\Personal\Eindwerk PCVO\EIDVoorbeeld\obj\Debug\MainWindow.baml
+C:\Personal\Eindwerk PCVO\EIDVoorbeeld\obj\Debug\EIDVoorbeeld.g.resources
+C:\Personal\Eindwerk PCVO\EIDVoorbeeld\obj\Debug\EIDVoorbeeld.Properties.Resources.resources
+C:\Personal\Eindwerk PCVO\EIDVoorbeeld\obj\Debug\EIDVoorbeeld.csproj.GenerateResource.Cache
+C:\Personal\Eindwerk PCVO\EIDVoorbeeld\obj\Debug\EIDVoorbeeld.exe
+C:\Personal\Eindwerk PCVO\EIDVoorbeeld\obj\Debug\EIDVoorbeeld.pdb

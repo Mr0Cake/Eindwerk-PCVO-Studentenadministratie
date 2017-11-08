@@ -1,0 +1,418 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8D43297D-9094-448A-A10D-887360ED9AB3}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>StudentenAdministratieApp</RootNamespace>
+    <AssemblyName>StudentenAdministratieApp</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MahApps.Metro, Version=1.2.4.0, Culture=neutral, PublicKeyToken=f4fb5a3c4d1e5b4f, processorArchitecture=MSIL">
+      <HintPath>..\StudentenAdministratie\packages\MahApps.Metro.1.2.4.0\lib\net45\MahApps.Metro.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MvvmValidation, Version=2.0.2.0, Culture=neutral, PublicKeyToken=113792d2053ac461, processorArchitecture=MSIL">
+      <HintPath>..\StudentenAdministratie\packages\MvvmValidation.2.0.2\lib\net40-client\MvvmValidation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\StudentenAdministratie\packages\MahApps.Metro.1.2.4.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Convertor\clsManVrouwToBoolConverter.cs" />
+    <Compile Include="Extensions\clsLockExtension.cs" />
+    <Compile Include="Pages\Cursisten\Afwezigheid.xaml.cs">
+      <DependentUpon>Afwezigheid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Cursisten\CursistAanpassen.xaml.cs">
+      <DependentUpon>CursistAanpassen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Cursisten\CursistenNavigationView.xaml.cs">
+      <DependentUpon>CursistenNavigationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Cursisten\ModuleInschrijving.xaml.cs">
+      <DependentUpon>ModuleInschrijving.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Cursisten\NieuweCursist.xaml.cs">
+      <DependentUpon>NieuweCursist.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Leerkrachten\Aanwezigheidslijsten.xaml.cs">
+      <DependentUpon>Aanwezigheidslijsten.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Leerkrachten\LeerkrachtAfwezig.xaml.cs">
+      <DependentUpon>LeerkrachtAfwezig.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Leerkrachten\LeerkrachtenNavigationView.xaml.cs">
+      <DependentUpon>LeerkrachtenNavigationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Leerkrachten\LesmomentAanpassen.xaml.cs">
+      <DependentUpon>LesmomentAanpassen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Leerkrachten\Punten.xaml.cs">
+      <DependentUpon>Punten.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Lesaanbod\LesaanbodNavigationView.xaml.cs">
+      <DependentUpon>LesaanbodNavigationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Lesaanbod\Modules.xaml.cs">
+      <DependentUpon>Modules.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Lesaanbod\Opleidingen.xaml.cs">
+      <DependentUpon>Opleidingen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Lesaanbod\Studiegebieden.xaml.cs">
+      <DependentUpon>Studiegebieden.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Lessenroosters\Leerkracht.xaml.cs">
+      <DependentUpon>Leerkracht.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Lessenroosters\LessenroostersNavigationView.xaml.cs">
+      <DependentUpon>LessenroostersNavigationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Lessenroosters\Module.xaml.cs">
+      <DependentUpon>Module.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Lessenroosters\Student.xaml.cs">
+      <DependentUpon>Student.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Personeel\LeerkrachtAanpassen.xaml.cs">
+      <DependentUpon>LeerkrachtAanpassen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Personeel\PersoneelAanpassen.xaml.cs">
+      <DependentUpon>PersoneelAanpassen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Personeel\PersoneelNavigationView.xaml.cs">
+      <DependentUpon>PersoneelNavigationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Ticketing\Afwezigheden.xaml.cs">
+      <DependentUpon>Afwezigheden.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Ticketing\Inschrijvingen.xaml.cs">
+      <DependentUpon>Inschrijvingen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Ticketing\LockedView.xaml.cs">
+      <DependentUpon>LockedView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Ticketing\TicketingNavigationView.xaml.cs">
+      <DependentUpon>TicketingNavigationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Ticketing\Tickets.xaml.cs">
+      <DependentUpon>Tickets.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Ticketing\Uitschrijvingen.xaml.cs">
+      <DependentUpon>Uitschrijvingen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Ticketing\Vragen.xaml.cs">
+      <DependentUpon>Vragen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Ticketing\Wijziging.xaml.cs">
+      <DependentUpon>Wijziging.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\clsCheckedClass.cs" />
+    <Compile Include="ViewModel\clsCustomCheckedListItem.cs" />
+    <Compile Include="ViewModel\clsCustomLesmomentItem.cs" />
+    <Compile Include="ViewModel\clsCustomListItem.cs" />
+    <Compile Include="ViewModel\clsCustomTreeviewItem.cs" />
+    <Compile Include="ViewModel\clsInschrijvingListItem.cs" />
+    <Compile Include="ViewModel\clsKlasRoosterItem.cs" />
+    <Compile Include="ViewModel\clsListUpdater.cs" />
+    <Compile Include="ViewModel\clsUserTicket.cs" />
+    <Compile Include="ViewModel\Cursisten\clsAfwezigheidViewModel.cs" />
+    <Compile Include="ViewModel\Cursisten\clsCursistAanpassenViewModel.cs" />
+    <Compile Include="ViewModel\Cursisten\clsCursistenViewModel.cs" />
+    <Compile Include="ViewModel\Cursisten\clsInschrijvingenBaseViewModel.cs" />
+    <Compile Include="ViewModel\Cursisten\clsModuleInschrijvingItem.cs" />
+    <Compile Include="ViewModel\Cursisten\clsModuleInschrijvingViewModel.cs" />
+    <Compile Include="ViewModel\Cursisten\clsNieuweCursistViewModel.cs" />
+    <Compile Include="ViewModel\Leerkrachten\clsAanwezigheidsLijstenViewModel.cs" />
+    <Compile Include="ViewModel\Leerkrachten\clsLeerkrachtenBaseViewModel.cs" />
+    <Compile Include="ViewModel\Leerkrachten\clsPuntenViewModel.cs" />
+    <Compile Include="ViewModel\Lessenroosters\clsLessenRoosterBaseViewModel.cs" />
+    <Compile Include="ViewModel\MainWindowViewModel.cs" />
+    <Compile Include="ViewModel\Personeel\clsLeerkrachtViewModel.cs" />
+    <Compile Include="ViewModel\Personeel\clsPersoneelViewModel.cs" />
+    <Compile Include="ViewModel\PropChanged.cs" />
+    <Compile Include="ViewModel\Ticketing\clsLockedViewModel.cs" />
+    <Compile Include="ViewModel\Ticketing\clsTicketAanwezighedenViewModel.cs" />
+    <Compile Include="ViewModel\Ticketing\clsTicketAanwezigheidViewModel.cs" />
+    <Compile Include="ViewModel\Ticketing\clsTicketingBaseViewModel.cs" />
+    <Compile Include="ViewModel\Ticketing\clsTicketingViewModel.cs" />
+    <Compile Include="ViewModel\Ticketing\clsTicketInschrijvingViewModel.cs" />
+    <Compile Include="ViewModel\Ticketing\clsTicketWijzigingViewModel.cs" />
+    <Compile Include="ViewModel\ViewModelBase.cs" />
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Pages\Cursisten\Afwezigheid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Cursisten\CursistAanpassen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Cursisten\CursistenNavigationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Cursisten\ModuleInschrijving.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Cursisten\NieuweCursist.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Leerkrachten\Aanwezigheidslijsten.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Leerkrachten\LeerkrachtAfwezig.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Leerkrachten\LeerkrachtenNavigationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Leerkrachten\LesmomentAanpassen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Leerkrachten\Punten.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Lesaanbod\LesaanbodNavigationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Lesaanbod\Modules.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Lesaanbod\Opleidingen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Lesaanbod\Studiegebieden.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Lessenroosters\Leerkracht.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Lessenroosters\LessenroostersNavigationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Lessenroosters\Module.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Lessenroosters\Student.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Personeel\LeerkrachtAanpassen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Personeel\PersoneelAanpassen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Personeel\PersoneelNavigationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Ticketing\Afwezigheden.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Ticketing\Inschrijvingen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Ticketing\LockedView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Ticketing\TicketingNavigationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Ticketing\Tickets.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Ticketing\Uitschrijvingen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Ticketing\Vragen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Ticketing\Wijziging.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Icons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\IconsNonShared.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="StyleDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <Resource Include="Resources\Entypo.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\WindowsIcons-license.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Entypo-license.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="PXLGreen.png" />
+    <Resource Include="PXLGreenSmall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="PXLBlueSmall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewModel\Lesaanbod\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MessageProvider\MessageProvider.csproj">
+      <Project>{a7b01094-9090-45b2-8590-fc0177095f53}</Project>
+      <Name>MessageProvider</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NetworkMessage\NetworkMessage.csproj">
+      <Project>{7e4aa200-0ef1-4567-abcf-efcb495b159f}</Project>
+      <Name>NetworkMessage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StudentenAdministratie\EID.Wrapper\EID.Wrapper.csproj">
+      <Project>{16c3782e-a7b2-4d28-b900-bdd870416683}</Project>
+      <Name>EID.Wrapper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ADServices\ADServices.csproj">
+      <Project>{04e4a513-67cc-4851-ae35-0ad51e51b58e}</Project>
+      <Name>ADServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StudentApplication.Model\StudentApplication.Model\StudentApplication.Model.csproj">
+      <Project>{0975a53d-bb3d-4c28-8501-aa913d7aee1a}</Project>
+      <Name>StudentApplication.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{19e55685-1445-4686-8623-896cebd16be6}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="background.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
